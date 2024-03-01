@@ -1,0 +1,25 @@
+fixed_objects:
+  # - name: mailbox 
+assets:  # in descending order of size
+  - name: red block  # horse toy
+    number: 3
+    model_path: environment/assets/bebs_custom/red_block.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159

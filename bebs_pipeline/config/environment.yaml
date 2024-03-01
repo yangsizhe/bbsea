@@ -1,0 +1,121 @@
+defaults:
+  - scene:
+
+env:
+  _target_: environment.bebs_scene.TableTopEnv
+  fixed_objects: ${scene.fixed_objects}
+  assets: ${scene.assets}
+  override_pos_ctrl_kp: null
+  override_pos_ctrl_force: null
+  config:
+    _convert_: all
+    _target_: scalingup.utils.core.EnvConfig
+    ctrl:
+      _target_: scalingup.utils.core.ControlConfig
+      _convert_: all
+      frequency: 4
+      dof: 10
+      control_type: 1 # scalingup.utils.core.ControlType.END_EFFECTOR
+      rotation_type: 2 # scalingup.utils.core.RotationType.ROT_MAT
+      t_lookahead: 0.0
+    obs_cameras:
+      - front
+      - top_down
+      - ur5e/wsg50/d435i/rgb
+    main_cam: front  # this is used in visibility checker
+    obs_dim:
+      - 160
+      - 240
+    settle_time_after_dropped_obj: 1.0
+    ee_action_num_grip_steps: 25
+    num_action_candidates: 500
+    num_action_candidate_attempt: 100
+    num_action_candidates_for_average: 20
+    max_pushin_dist: 0.04
+    min_pushin_dist: 0.03
+    prepick_distance: 0.1
+    solve_ee_inplace: true # more efficient
+    # revolution action
+    num_steps_multiplier:  40.0
+    min_steps: 4
+    rotate_gripper_threshold: 0.0
+    # place action
+    pointing_up_normal_threshold: 0.95
+    place_height_min: 0.02
+    place_height_max: 0.08
+    preplace_dist_min: 0.05
+    preplace_dist_max: 0.10
+    # move end effector options
+    fallback_on_rrt_fail: false
+    # action execution
+    end_on_failed_execution: true
+    # action primitives
+    grasp_primitive_z_pushin: 0.01
+    grasp_primitive_z_backup: 0.2
+  motion_plan_subsampler:
+    _target_: scalingup.utils.core.MotionPlanSubsampler
+    ctrl_config: 
+      _target_: scalingup.utils.core.ControlConfig
+      _convert_: all
+      frequency: 4
+      dof: 10
+      control_type: 1 # scalingup.utils.core.ControlType.END_EFFECTOR
+      rotation_type: 2 # scalingup.utils.core.RotationType.ROT_MAT
+      t_lookahead: 0.0
+    min_ctrl_cycles: 1
+    min_speed_ratio: 0.75
+    configs:
+      joint:
+        _target_: scalingup.utils.core.MotionPlanSubsamplerConfig
+        err_threshold: 1e-1
+        max_speed: 0.4 # rad per second
+      ee_pos:
+        _target_: scalingup.utils.core.MotionPlanSubsamplerConfig
+        err_threshold: 1e-2 # meters
+        max_speed: 0.2 # meters per second
+      ee_orn:
+        _target_: scalingup.utils.core.MotionPlanSubsamplerConfig
+        err_threshold: 1e-1 # error
+        max_speed: 1.5 # rad per second
+  discretizer: null
+  visibility_checker_cam_name: ${env.config.main_cam}
+  
+sampler_config:
+  _target_: scalingup.utils.core.EnvSamplerConfig
+  _convert_: all
+  allow_nondeterminism: True
+  done_on_success: True
+  obs_horizon: 2
+  max_time: 100 # in seconds
+  use_all_subtrajectories: False
+  visualization_cam: front
+  visualization_fps: 6
+  visualization_resolution:
+    - 320
+    - 480
+  dump_failed_trajectories: false
+
+links_of_fixed_object_to_be_detected:
+  mailbox:
+    path: mailbox/|mailbox/mailbox
+    links:
+      - name: mailbox handle
+        link_path: mailbox/|mailbox/mailbox|mailbox/mailbox_lid|mailbox/mailbox_lid_handle
+  catapult:
+    path: catapult/|catapult/catapult|catapult/catapult_arm
+    links:
+      - name: catapult button
+        link_path: catapult/|catapult/catapult|catapult/button
+  drawer:
+    path: drawer/|drawer/drawer|drawer/middle_drawer
+    links:
+      - name: drawer handle
+        link_path: drawer/|drawer/drawer|drawer/middle_drawer|drawer/middle_drawer_handle
+  cupboard:
+    path: cupboard/|cupboard/cupboard
+    links:
+      - name: cupboard left door handle
+        link_path: cupboard/|cupboard/cupboard|cupboard/left_door|cupboard/left_door_handle
+      - name: cupboard right door handle
+        link_path: cupboard/|cupboard/cupboard|cupboard/right_door|cupboard/right_door_handle
+    

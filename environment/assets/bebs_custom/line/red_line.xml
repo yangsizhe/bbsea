@@ -1,0 +1,7 @@
+<mujoco model="red line">
+  <worldbody>
+    <body name="red line">
+      <geom type="box" size="0.1 0.01 0.001" rgba="0.8 0.1 0.1 1"/>
+    </body>
+  </worldbody>
+</mujoco>

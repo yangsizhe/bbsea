@@ -1,0 +1,24 @@
+defaults:
+  - single_env
+  - _self_
+sampler_config:
+  max_time: 100 # in seconds
+env:
+  _target_: scalingup.environment.mujoco.bebs_put_block_in_bin.TableTopBinGraspingMujocoEnv
+  bin_x_offset: 0.0
+  min_bin_y_dist: 0.22
+  max_bin_y_dist: 0.24
+  obj_x_margin: 0.1
+  obj_y_margin: 0.1
+  bin_z_rot_margin: 0.1
+  asset_paths:
+    - scalingup/environment/mujoco/assets/bebs_custom/block.xml
+  bin_path: scalingup/environment/mujoco/assets/bebs_custom/tote/small_tote.xml
+
+task_sampler:
+  tasks:
+  - _target_: scalingup.utils.tasks.PutObjInContainer
+    obj_link_path: block/|block/block
+    container_link_path: bin/|bin/bin
+    require_close: false
+    desc_template: put the red block in the green bin

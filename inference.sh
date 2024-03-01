@@ -1,0 +1,1 @@
+HYDRA_FULL_ERROR=1 CUDA_VISIBLE_DEVICES=0 python scalingup/inference.py evaluation.num_episodes=10 policy=scalingup evaluation=drawer evaluation.start_episode=100000

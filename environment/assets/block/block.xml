@@ -1,0 +1,12 @@
+<mujoco model="box">
+    <compiler angle="radian" autolimits="true" />
+    <size njmax="500" nconmax="100" />
+    <custom>
+        <text name="semantic_class" data="box" />
+    </custom>
+    <worldbody>
+    <body name="block">
+        <geom size="0.02 0.02 0.02" type="box" rgba="0 1 0.349 1" />
+        </body>
+    </worldbody>
+</mujoco>

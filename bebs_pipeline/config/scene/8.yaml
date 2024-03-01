@@ -1,0 +1,92 @@
+fixed_objects:
+  # - name: drawer
+  # - cupboard
+assets:  # in descending order of size
+  - name: red block
+    number: 1
+    model_path: environment/assets/bebs_custom/red_block.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+  - name: blue block
+    number: 1
+    model_path: environment/assets/bebs_custom/blue_block.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+  - name: red line
+    number: 1
+    model_path: environment/assets/bebs_custom/line/red_line.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.1
+        - 0.15
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+  - name: blue line
+    number: 1
+    model_path: environment/assets/bebs_custom/line/blue_line.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.1
+        - 0.15
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0

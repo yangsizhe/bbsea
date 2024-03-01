@@ -1,0 +1,32 @@
+<mujoco model="L-shaped container">
+    <compiler angle="radian" autolimits="true" />
+            <custom>
+        <text name="semantic_class" data="container" />
+    </custom>
+    <default>
+        <default class="visual">
+            <geom type="mesh" contype="0" conaffinity="0" group="2" />
+        </default>
+        <default class="collision">
+            <geom type="mesh" group="3" />
+        </default>
+    </default>
+    <worldbody>
+    <body name = "L-shaped container">
+        <geom size="0.05 0.001 0.02" pos="0.025 -0.025 0" type="box" rgba="0.729412 0 0 0" />
+
+        <geom size="0.025 0.001 0.02" pos="0 0.075 0"  class="visual" type="box" rgba="0.729412 0 0 0" />
+            <geom size="0.025 0.001 0.02" pos="0 0.075 0"  class="collision" type="box" rgba="0.729412 0 0 0" />
+        <geom size="0.025 0.001 0.02" pos="0.05 0.025 0"  class="visual" type="box" rgba="0.729412 0 0 0" />
+        <geom size="0.025 0.001 0.02" pos="0.05 0.025 0"  class="collision" type="box" rgba="0.729412 0 0 0" />
+        <geom size="0.001 0.0525 0.02" pos="-0.025 0.025 0" type="box" class="visual" rgba="0.729412 0 0 0" />
+        <geom size="0.001 0.0525 0.02" pos="-0.025 0.025 0" type="box" class="collision" rgba="0.729412 0 0 0" />
+        <geom size="0.001 0.0275 0.02" pos="0.025 0.05 0" class="visual" type="box" rgba="0.729412 0 0 0" />
+        <geom size="0.001 0.0275 0.02" pos="0.025 0.05 0" class="collision" type="box" rgba="0.729412 0 0 0" />
+        <geom size="0.001 0.0275 0.02" pos="0.075 0 0" class="visual" type="box" rgba="0.729412 0 0 0" />
+        <geom size="0.001 0.0275 0.02" pos="0.075 0 0" class="collision" type="box" rgba="0.729412 0 0 0" />
+        <geom size="0.01 0.01 0.0005" pos="0 0 -0.02" class="visual" type="box" rgba="0.729412 0 0 0" />
+        <geom size="0.01 0.01 0.0005" pos="0 0 -0.02" class="collision" type="box" rgba="0.729412 0 0 0" />
+        </body>
+    </worldbody>
+</mujoco>

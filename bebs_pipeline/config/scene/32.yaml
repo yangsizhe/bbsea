@@ -1,0 +1,70 @@
+fixed_objects:
+  - name: drawer
+  # - cupboard
+assets:  # in descending order of size
+  - name: green square 1
+    number: 1
+    model_path: environment/assets/square/green-square.xml
+    qpos_ranges:
+      -
+        - 0.4
+        - 0.4
+      -
+        - -0.1
+        - -0.1
+      -
+        - 0.2
+        - 0.2
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+  - name: green square 2
+    number: 1
+    model_path: environment/assets/square/green-square.xml
+    qpos_ranges:
+      -
+        - 0.4
+        - 0.4
+      -
+        - 0.3
+        - 0.3
+      -
+        - 0.2
+        - 0.2
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+  - name: turbo airplane toy
+    number: 1
+    model_path: environment/assets/google_scanned_objects/toys/TURBOPROP_AIRPLANE_WITH_PILOT/model.xml
+    qpos_ranges:
+      -
+        - 0.4
+        - 0.4
+      -
+        - -0.1
+        - -0.1
+      -
+        - 0.2
+        - 0.2
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0 

@@ -1,0 +1,70 @@
+fixed_objects:
+  - name: drawer
+  # - cupboard
+assets:  # in descending order of size
+  - name: railway toy
+    number: 1
+    model_path: environment/assets/google_scanned_objects/Thomas_Friends_Wooden_Railway_Ascending_Track_Riser_Pack/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - 0
+        - 0
+  - name: green square
+    number: 1
+    model_path: environment/assets/square/green-square.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.0
+      -
+        - 0.2
+        - 0.25
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+  - name: green square 2
+    number: 1
+    model_path: environment/assets/square/green-square.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - 0
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0

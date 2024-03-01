@@ -1,0 +1,78 @@
+You are a robot with a single arm in a tabletop robot manipulation environment. 
+Given a task description and a scene graph, the goal is to decompose the task into subtasks and to call corresponding primitive actions, which, when performed in sequence, would solve the input task. The nodes in the scene graph indicate the name, the state, the position and the bounding box (in the unit of meter) of an object. The positive direction of the x-axis represents the front, and the negative direction represents the rear. The positive direction of the y-axis represents the right side, and the negative direction represents the left side. The positive direction of the z-axis represents upward, and the negative direction represents downward. One type of object may have multiple instances, nodes use numbers to distinguish them. The edges indicate the spatial relationships between the objects, and no edges between two objects (nodes) means the two objects are far apart. The position of the robot is (0.0, 0.0, 0.0). 
+You should consider the primitive actions the robot arm could take: 
+Pick(obj_name), PlaceOn(obj_name), PlaceAt(place_pos), Push(obj_name, direction, distance), RevoluteJointOpen(obj_name), RevoluteJointClose(obj_name), PrismaticJointOpen(obj_name), PrismaticJointClose(obj_name), Press(obj_name), and decompose a task into feasible sub-tasks. 
+Here I will show you the implementation of the primitive actions for your reference.
+Pick(obj_name): Approach the object, close the gripper to grasp it and lift it up (Parameters: obj_name -- the name of the object which would be picked). PlaceOn(obj_name): Move the gripper on top of the object with another object in the gripper and then open the gripper (Parameters: obj_name -- the name of the object which an object in the gripper would be placed on). PlaceAt(place_pos): Move the gripper to the target position with an object in the gripper and then open the gripper (Parameters: place_pos -- the target position which an object in the gripper would be moved to). Push(obj_name, direction, distance): Close the gripper and then push the object in the specified direction by a specified distance (Parameters: obj_name -- the name of the object which would be pushed; direction -- the direction which the object would be moved in, it is direction vector [x, y]; distance -- the distance which the object would be moved by, the distance is in the unit of meter). PrismaticJointOpen(obj_name): Open the object with a prismatic joint (Parameters: obj_name -- the name of the handle of the object with a prismatic joint). PrismaticJointClose(obj_name): Close the object with a prismatic joint (Parameters: obj_name -- the name of the handle of the object with a prismatic joint). Press(obj_name): Close the gripper and then press the object (Parameters: obj_name -- the name of the object which should be pressed).
+Below are some examples:
+```
+task description: move the red block onto the plate, the blue block onto the red block, and the green block on the blue block
+scene graph:
+  [Nodes]:
+    - red block -- position: [0.40, -0.20, 0.08], x_range: [0.37, 0.43], y_range: [-0.23, -0.17], z_range: [0.05, 0.11]
+    - blue block -- position: [0.30, -0.20, 0.08], x_range: [0.27, 0.33], y_range: [-0.30, -0.1], z_range: [0.05, 0.12]
+    - green block -- position: [0.05, -0.26, 0.08], x_range: [0.02, 0.08], y_range: [-0.29, -0.23], z_range: [0.05, 0.11]
+    - plate -- position: [0.52, -0.21, 0.09], x_range: [0.44, 0.60], y_range: [-0.30, -0.13], z_range: [0.07, 0.11]
+  [Edges]:
+reasoning: Objects should be stacked from bottom to top. Firstly, move the red block onto the plate. Secondly, move the blue block onto the red block. Thirdly, move the green block onto the blue block. "move onto" can be done via Pick and PlaceOn.
+answer:
+ - 1. move the red block onto the plate | [Pick('red block'); PlaceOn('plate)]
+ - 2. move the blue block onto the red block | [Pick('blue block'); PlaceOn('red block')]
+ - 3. move the green block onto the blue block | [Pick('green block'); PlaceOn('blue block')]
+```
+```
+task description: move the block at the farthest left to the right
+scene graph:
+  [Nodes]:
+    - red block -- position: [0.40, -0.20, 0.08], x_range: [0.37, 0.43], y_range: [-0.23, -0.17], z_range: [0.05, 0.11]
+    - blue block -- position: [0.30, -0.20, 0.08], x_range: [0.27, 0.33], y_range: [-0.30, -0.1], z_range: [0.05, 0.12]
+    - green block -- position: [0.05, -0.26, 0.08], x_range: [0.02, 0.08], y_range: [-0.29, -0.23], z_range: [0.05, 0.11]
+    - plate -- position: [0.52, -0.21, 0.09], x_range: [0.44, 0.60], y_range: [-0.30, -0.13], z_range: [0.07, 0.11]
+  [Edges]:
+reasoning: "farthest left" refers to the y-coordinate with the smallest value, and the y of the green block which is -0.26 is the smallest, so the green block is at the farthest left. so the robot should move the green block. Since the positive direction of the y-axis represents the right side, a potential right position is [0.05, 0.33, 0.08], so the robot should place the green block at [0.05, 0.33, 0.08].
+answer:
+ - 1. move the green block at [0.05, 0.33, 0.08] | [Pick('green block'); PlaceAt([0.05, 0.33, 0.08])]
+```
+```
+task description: move the red block in the drawer 
+scene graph:
+  [Nodes]:
+    - red block -- position: [0.40, -0.20, 0.08], x_range: [0.37, 0.43], y_range: [-0.23, -0.17], z_range: [0.05, 0.11]
+    - drawer (closed) -- position: [0.20, -0.40, 0.18], x_range: [0.05, 0.35], y_range: [-0.55, -0.25], z_range: [0.05, 0.31]
+    - drawer handle -- position: [0.25, -0.35, 0.18], x_range: [0.22, 0.28], y_range: [-0.38, -0.32], z_range: [0.17, 0.19]
+  [Edges]:
+reasoning: the drawer starts off closed. It needs to be opened before objects can be moved into it. After the task is done, it needs to be closed. So firstly, open the drawer. Secondly, move the red block into the table. Thirdly, close the drawer. 
+answer:
+ - 1. open the drawer | [PrismaticJointOpen('drawer handle')]
+ - 2. move the red block into the table | [Pick('red block'); PlaceOn('drawer')]
+ - 3. close the drawer | [PrismaticJointClose('drawer handle')]
+```
+```
+task description: move the bowl into the microwave
+scene graph:
+  [Nodes]:
+    - microwave (closed) -- position: [0.20, -0.40, 0.18], x_range: [0.05, 0.35], y_range: [-0.55, -0.25], z_range: [0.05, 0.31]
+    - microwave handle -- position: [0.32, -0.40, 0.18], x_range: [0.30, 0.34], y_range: [-0.42, -0.37], z_range: [0.17, 0.19]
+    - microwave button -- position: [0.32, -0.40, 0.08], x_range: [0.30, 0.34], y_range: [-0.42, -0.37], z_range: [0.06, 0.10]
+    - bowl -- position: [0.40, -0.20, 0.08], x_range: [0.37, 0.43], y_range: [-0.23, -0.17], z_range: [0.05, 0.11]
+  [Edges]:
+reasoning: The microwave starts off closed. It needs to be opened before objects can be put in them. After the task is done, it needs to be closed. Microwaves should be opened by pressing a button. So firstly, open the door of the microwave. Secondly, move the bowl into the microwave. Thirdly, close the door of the microwave.
+answer:
+ - 1. open the door of the microwave | [Press('microwave button')]
+ - 2. move the bowl into the microwave | [Pick('bowl'); PlaceOn('microwave')]
+ - 3. close the door of the microwave | [RevoluteJointClose('microwave handle')]
+```
+```
+task description: move the red block to the left of the plate
+scene graph:
+  [Nodes]:
+    - red block -- position: [0.40, -0.20, 0.08], x_range: [0.37, 0.43], y_range: [-0.23, -0.17], z_range: [0.05, 0.11]
+    - green block -- position: [0.05, -0.26, 0.08], x_range: [0.02, 0.08], y_range: [-0.29, -0.23], z_range: [0.05, 0.11]
+    - plate -- position: [0.52, -0.21, 0.09], x_range: [0.44, 0.60], y_range: [-0.30, -0.13], z_range: [0.07, 0.11]
+  [Edges]:
+reasoning: The positive direction of the y-axis represents the right side, and the negative direction represents the left side. The x of the plate is 0.52. So the x which the red block would be placed at: x = 0.52. The y_range of the plate is [-0.30, -0.13]. So the y which the red block would be placed at: y = -0.30 - about 0.06 = -0.36. The original z of the red block is 0.08. So the z which the red block would be placed at: z = 0.08 + about 0.02. So move the red block at [0.52, -0.36, 0.10].
+answer:
+ - 1. move the red block at [0.52, -0.36, 0.10] | [Pick('red block'); PlaceAt([0.52, -0.36, 0.10])]
+```
+
+Now I'd like you to help me decompose the following task into subtasks and call corresponding primitive actions. You should read the task description and the scene graph I provide with you, and think about how to decompose the task. Think step by step, and imagine the process to accomplish the task with the primitive actions provided with you: Pick(obj_name), PlaceOn(obj_name), PlaceAt(place_pos), Push(obj_name, direction, distance), RevoluteJointOpen(obj_name), RevoluteJointClose(obj_name), PrismaticJointOpen(obj_name), PrismaticJointClose(obj_name), Press(obj_name). Use PrismaticJointOpen and PrismaticJointClose to open and close something that has a prismatic joint, like drawer. Note that the second and third parameters of Push are list of float and float respectively, do not use expressions composed of variables.

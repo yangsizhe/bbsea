@@ -1,0 +1,92 @@
+fixed_objects:
+  - name: drawer
+  # - cupboard
+assets:  # in descending order of size
+  - name: green bin
+    number: 1
+    model_path: environment/assets/bebs_custom/tote/small_tote.xml
+    qpos_ranges:
+      - 
+        - 0.25
+        - 0.55
+      -
+        - -0.35
+        - 0.35
+      -
+        - 0.05
+        - 0.05
+      - 
+        - 0.0
+        - 0.0
+      -
+        - 0.0
+        - 0.0
+      -
+        - 0.0
+        - 0.0
+  - name: hammer
+    number: 1
+    model_path: environment/assets/google_scanned_objects/Cole_Hardware_Hammer_Black/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+  - name: screwdriver
+    number: 1
+    model_path: environment/assets/google_scanned_objects/Craftsman_Grip_Screwdriver_Phillips_Cushion/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+  - name: scissor
+    number: 1
+    model_path: environment/assets/google_scanned_objects/Diamond_Visions_Scissors_Red/model.xml
+    qpos_ranges:
+      - 
+        - 0.25
+        - 0.55
+      -
+        - -0.35
+        - 0.35
+      -
+        - 0.05
+        - 0.05
+      - 
+        - 0.0
+        - 0.0
+      -
+        - 0.0
+        - 0.0
+      -
+        - 0.0
+        - 0.0 

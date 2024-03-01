@@ -1,0 +1,7 @@
+<mujoco model="red square sticker">
+  <worldbody>
+    <body name="red square sticker">
+      <geom type="box" size="0.05 0.05 0.001" rgba="0.8 0.1 0.1 1"/>
+    </body>
+  </worldbody>
+</mujoco>

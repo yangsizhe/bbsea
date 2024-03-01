@@ -1,0 +1,25 @@
+<mujoco model="bowl">
+    <compiler angle="radian" autolimits="true" />
+        <custom>
+        <text name="semantic_class" data="bowl" />
+    </custom>
+        <default>
+        <default class="visual">
+            <geom type="mesh" contype="0" conaffinity="0" group="2" />
+        </default>
+        <default class="collision">
+            <geom type="mesh" group="3" />
+        </default>
+    </default>
+
+    <asset>
+        <mesh file="textured-0008192.obj" name="texture" scale="2.5 2.5 0.5" />
+        <mesh file="cup.obj" name="cup" scale="2.5 2.5 0.5"/>
+    </asset>
+    <worldbody>
+    <body name = "bowl">
+         <geom mesh="texture" class="visual" rgba="0.0 0.1 0.9 1" />
+         <geom mesh="cup" class="collision" rgba="0.0 0.1 0.9 1" />
+         </body>
+         </worldbody>
+</mujoco>

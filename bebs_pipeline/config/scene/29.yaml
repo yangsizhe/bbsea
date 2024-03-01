@@ -1,0 +1,70 @@
+fixed_objects:
+  - name: drawer
+  # - cupboard
+assets:  # in descending order of size
+  - name: spiderman
+    number: 1
+    model_path: environment/assets/google_scanned_objects/toys/SpiderMan_Titan_Hero_12Inch_Action_Figure_oo1qph4wwiW/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+  - name: transformers toy
+    number: 1
+    model_path: environment/assets/google_scanned_objects/toys/Transformers_Age_of_Extinction_Mega_1Step_Bumblebee_Figure/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+  - name: android panda
+    number: 1
+    model_path: environment/assets/google_scanned_objects/toys/Android_Figure_Panda/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0

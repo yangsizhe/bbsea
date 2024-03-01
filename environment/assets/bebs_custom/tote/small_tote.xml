@@ -1,0 +1,55 @@
+<mujoco model="green bin">
+
+    <compiler angle="radian" meshdir="./" autolimits="true" />
+    <option impratio="10" />
+    <default>
+        <default class="visual">
+            <geom type="mesh" group="2" />
+        </default>
+        <default class="collision">
+            <geom type="mesh" group="3" />
+        </default>
+    </default>
+
+    <asset>
+        <!-- <mesh file="ToteA.L.obj" name="tote" scale="0.75 0.75 0.5" />
+        <mesh file="ToteA.L000.obj" name="tote_collision_00" scale="0.75 0.75 0.5" />
+        <mesh file="ToteA.L001.obj" name="tote_collision_01" scale="0.75 0.75 0.5" />
+        <mesh file="ToteA.L002.obj" name="tote_collision_02" scale="0.75 0.75 0.5" />
+        <mesh file="ToteA.L003.obj" name="tote_collision_03" scale="0.75 0.75 0.5" />
+        <mesh file="ToteA.L004.obj" name="tote_collision_04" scale="0.75 0.75 0.5" />
+        <mesh file="ToteA.L005.obj" name="tote_collision_05" scale="0.75 0.75 0.5" />
+        <mesh file="ToteA.L006.obj" name="tote_collision_06" scale="0.75 0.75 0.5" />
+        <mesh file="ToteA.L007.obj" name="tote_collision_07" scale="0.75 0.75 0.5" />
+        <mesh file="ToteA.L008.obj" name="tote_collision_08" scale="0.75 0.75 0.5" />
+        <mesh file="ToteA.L009.obj" name="tote_collision_09" scale="0.75 0.75 0.5" /> -->
+        <mesh file="ToteA.L.obj" name="tote" scale="0.5 0.5 0.35" />
+        <mesh file="ToteA.L000.obj" name="tote_collision_00" scale="0.5 0.5 0.35" />
+        <mesh file="ToteA.L001.obj" name="tote_collision_01" scale="0.5 0.5 0.35" />
+        <mesh file="ToteA.L002.obj" name="tote_collision_02" scale="0.5 0.5 0.35" />
+        <mesh file="ToteA.L003.obj" name="tote_collision_03" scale="0.5 0.5 0.35" />
+        <mesh file="ToteA.L004.obj" name="tote_collision_04" scale="0.5 0.5 0.35" />
+        <mesh file="ToteA.L005.obj" name="tote_collision_05" scale="0.5 0.5 0.35" />
+        <mesh file="ToteA.L006.obj" name="tote_collision_06" scale="0.5 0.5 0.35" />
+        <mesh file="ToteA.L007.obj" name="tote_collision_07" scale="0.5 0.5 0.35" />
+        <mesh file="ToteA.L008.obj" name="tote_collision_08" scale="0.5 0.5 0.35" />
+        <mesh file="ToteA.L009.obj" name="tote_collision_09" scale="0.5 0.5 0.35" />
+    </asset>
+    <worldbody>
+        <body name="green bin">
+            <geom mesh="tote" class="visual" rgba="0.2 0.7 0.1 1" />
+            <geom mesh="tote_collision_00" class="collision" />
+            <geom mesh="tote_collision_01" class="collision" />
+            <geom mesh="tote_collision_02" class="collision" />
+            <geom mesh="tote_collision_03" class="collision" />
+            <geom mesh="tote_collision_04" class="collision" />
+            <geom mesh="tote_collision_05" class="collision" />
+            <geom mesh="tote_collision_06" class="collision" />
+            <geom mesh="tote_collision_07" class="collision" />
+            <geom mesh="tote_collision_08" class="collision" />
+            <geom mesh="tote_collision_09" class="collision" />
+            <geom type="box" size="0.06 0.08 0.005" class="visual" rgba="0.2 0.7 0.1 1" />
+            <geom type="box" size="0.06 0.08 0.005" class="collision" rgba="0.2 0.7 0.1 1" />
+        </body>
+    </worldbody>
+</mujoco>

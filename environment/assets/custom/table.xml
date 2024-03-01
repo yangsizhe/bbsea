@@ -1,0 +1,31 @@
+<mujoco model="table">
+    <compiler angle="radian" autolimits="true" />
+    <option impratio="10" />
+    <default>
+        <default class="visual">
+            <geom type="mesh" contype="0" conaffinity="0" group="2" />
+        </default>
+        <default class="collision">
+            <geom type="mesh" group="3" />
+        </default>
+    </default>
+
+    <asset>
+        <material name="table" rgba="1 1 1 1" reflectance="0" specular="0.0"
+            shininess="0" />
+    </asset>
+    <worldbody>
+        <body name="table">
+            <geom pos="0 0 0" size="0.3 1.2 0.05" class="visual" type="box" material="table" />
+            <geom pos="-0.8 0 0" size="0.2 1.2 0.05" class="visual" type="box" material="table" />
+            <geom pos="-0.6 0.7 0" size="0.3 0.5 0.05" class="visual" type="box" material="table" />
+            <geom pos="-0.6 -0.7 0" size="0.3 0.5 0.05" class="visual" type="box" material="table" />
+
+            <geom pos="0 0 0" size="0.3 1.2 0.05" class="collision" type="box" />
+            <geom pos="-0.8 0 0" size="0.2 1.2 0.05" class="collision" type="box" />
+            <geom pos="-0.6 0.7 0" size="0.3 0.5 0.05" class="collision" type="box" />
+            <geom pos="-0.6 -0.7 0" size="0.3 0.5 0.05" class="collision" type="box" />
+        </body>
+    </worldbody>
+</mujoco>
+    

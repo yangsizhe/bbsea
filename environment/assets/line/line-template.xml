@@ -1,0 +1,17 @@
+<mujoco model="line">
+  <compiler angle="radian" autolimits="true" />
+  <asset>
+    <texture type="2d" name="green" builtin="flat" width="1" height="1" rgb1="0 1 0"/>
+    <material name="green" texture="green" rgba="1 1 1 1"/>
+  </asset>
+  <worldbody>
+    <body name="baseLink">
+      <geom type="box" size="0.1 0.01 0.001" material="green"/>
+      <!-- <inertial>
+        <mass value="0.1"/>
+        <inertia ixx="1" ixy="0" ixz="0" iyy="1" iyz="0" izz="1"/>
+          <origin rpy="0 0 0" xyz="0 0 0"/>
+      </inertial> -->
+    </body>
+  </worldbody>
+</mujoco>

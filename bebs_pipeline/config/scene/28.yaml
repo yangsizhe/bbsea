@@ -1,0 +1,48 @@
+fixed_objects:
+  - name: drawer
+  # - cupboard
+assets:  # in descending order of size
+  - name: large block
+    number: 1
+    model_path: environment/assets/stacking_boxes/large.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+  - name: airplane toy
+    number: 1
+    model_path: environment/assets/google_scanned_objects/toys/Air_Hogs_Wind_Flyers_Set_Airplane_Red/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0

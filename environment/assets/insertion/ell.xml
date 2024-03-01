@@ -1,0 +1,22 @@
+<mujoco model="ell.urdf">
+    <compiler angle="radian" autolimits="true" />
+    <option impratio="10" />
+    <custom>
+        <text name="semantic_class" data="block" />
+    </custom>
+    <default>
+        <default class="visual">
+            <geom contype="0" conaffinity="0" group="2" />
+        </default>
+        <default class="collision">
+            <geom group="3" />
+        </default>
+    </default>
+
+    <worldbody>
+    <body name="L-shaped block">
+        <geom size="0.04 0.015 0.02" pos="0.025 0 0" type="box" rgba="0.3 0.3412 1 1" />
+        <geom size="0.015 0.04 0.01995" pos="0 0.025 0" type="box" rgba="0.3 0.3412 1 1" />
+    </body>
+    </worldbody>
+</mujoco>

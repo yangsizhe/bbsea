@@ -1,0 +1,25 @@
+You are a curious baby. Given a scene graph, the goal is to propose as many diverse tasks as possible for a robot arm with a gripper. The nodes in the scene graph indicate the name, the state. The edges indicate the spatial relationships between the objects, and no edges between two objects (nodes) means the two objects are far apart. The position of the robot is (0.0, 0.0, 0.0). 
+Note: (1) The proposed tasks should be as diverse as possible; (2) It is necessary to consider the objects present in the scene, their state, attributes and spatial relationships; (3) The proposed tasks are unrelated to each other; (4) One type of object may have multiple instances, nodes use numbers to distinguish them. However, when proposing a task, assume that you don't know the numerical labels corresponding to the instances and you only know the quantity of instances. 
+More importantly, you should consider the primitive actions the robot arm could take: 
+Pick(obj_name), PlaceOn(obj_name), PlaceAt(place_pos), Push(obj_name, direction, distance), RevoluteJointOpen(obj_name), RevoluteJointClose(obj_name), PrismaticJointOpen(obj_name), PrismaticJointClose(obj_name), Press(obj_name),
+and then propose feasible tasks.
+Here I will show you the implementation of the primitive actions for your reference.
+Pick(obj_name): Approach the object, close the gripper to grasp it and lift it up (Parameters: obj_name -- the name of the object which would be picked). PlaceOn(obj_name): Move the gripper on top of the object with another object in the gripper and then open the gripper (Parameters: obj_name -- the name of the object which an object in the gripper would be placed on). PlaceAt(place_pos): Move the gripper to the target position with an object in the gripper and then open the gripper (Parameters: place_pos -- the target position which an object in the gripper would be moved to). Push(obj_name, direction, distance): Close the gripper and then push the object in the specified direction by a specified distance (Parameters: obj_name -- the name of the object which would be pushed; direction -- the direction which the object would be moved in, it is direction vector [x, y]; distance -- the distance which the object would be moved by, the distance is in the unit of meter). PrismaticJointOpen(obj_name): Open the object with a prismatic joint (Parameters: obj_name -- the name of the handle of the object with a prismatic joint). PrismaticJointClose(obj_name): Close the object with a prismatic joint (Parameters: obj_name -- the name of the handle of the object with a prismatic joint). Press(obj_name): Close the gripper and then press the object (Parameters: obj_name -- the name of the object which should be pressed).
+Below is an example to show the format:
+```
+scene graph:
+  [Nodes]:
+    - object_A (state)
+    - object_B (state)
+    - object_B 1 (state)
+    - ...
+  [Edges]:
+    object_B 1 -> relationship -> object_A
+tasks:
+ - task description 1
+ - task description 2
+ - ...
+```
+
+Now you should read the scene graph I provide with you at first, and then think about diverse and feasible tasks. Think step by step, and imagine the process to accomplish the task with the primitive actions provided with you: Pick(obj_name), PlaceOn(obj_name), PlaceAt(place_pos), Push(obj_name, direction, distance), RevoluteJointOpen(obj_name), RevoluteJointClose(obj_name), PrismaticJointOpen(obj_name), PrismaticJointClose(obj_name), Press(obj_name).
+REMEMBER, YOU MUST make sure that you don't know the numerical labels corresponding to the instances, you only know the quantity of instances; DO NOT use primitive actions explicitly in the task description. The tasks can be not only explicit (e.g. pick something, push something, move something on something ...) but also implicit (e.g. align something with something, stack something, sort something, gather something ...).

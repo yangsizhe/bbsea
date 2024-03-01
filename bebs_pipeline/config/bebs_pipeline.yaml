@@ -1,0 +1,7 @@
+scene_id: 0
+max_trajectory_number_per_task: 1000
+success_trajectory_number_per_task: 100
+
+output_path: output
+log_path: ${output_path}/log
+trajectory_path: ${output_path}/trajectory

@@ -1,0 +1,114 @@
+[project]
+name = "bbsea"
+version = "0.0.1"
+description = "Source code for BBSEA: An Exploration of Brain-Body Synchronization for Embodied Agents"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "chardet",
+    "torch",
+    "wandb>=0.13",
+    "imageio>=2.22.4",
+    "imageio-ffmpeg>=0.4.7",
+    "transformers>=4.25.1",
+    "pytorch-lightning==2.0.7",
+    "transforms3d>=0.4.1",
+    "pydantic>=1.10.2",
+    "opencv-python-headless>=4.6.0.66",
+    "openai==0.28.1",
+    "hydra-core>=1.2.0",
+    "rich>=12.6.0",
+    "open3d>=0.16.0",
+    "robomimic==0.2.0",
+    "dill>=0.3.6",
+    "einops>=0.4.1",
+    "pre-commit>=2.20.0",
+    "gradio>=3.10",
+    "mujoco==2.3.7",
+    "dm-control==1.0.14",
+    "pytest-xdist>=3.1.0",
+    "mgzip>=0.2.1",
+    "diffusers==0.11.1",
+    "numcodecs>=0.11.0",
+    "zarr>=2.14.2",
+    "imagecodecs>=2023.3.16",
+    "PyOpenGL-accelerate", 
+    "lmdb",
+    "brotli",
+    "ray==2.1.0",
+    "torch_scatter",
+    "pytorch3d",
+    "numba",
+    "scikit-image==0.20.0",
+    "ftfy",
+    "pyyaml",
+    "retry",
+    "supervision",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[tool.black]
+include = '\.pyi?$'
+line-length = 90
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | \.vscode
+  | _build
+  | buck-out
+  | build
+  | dist
+
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+)/
+'''
+
+[tool.mypy]
+ignore_missing_imports=true
+plugins = [
+  "pydantic.mypy"
+]
+exclude = [
+    "scalingup/policy/prompts/",
+    "tests/"
+]
+
+[tool.pydantic-mypy]
+init_forbid_extra = true
+init_typed = true
+warn_required_dynamic_aliases = true
+warn_untyped_fields = true
+
+[tool.setuptools]
+py-modules = ['scalingup', 'environment']
+
+[tool.pyright]
+include = ["scalingup","scripts","tests","environment"]
+exclude = [
+    "**/node_modules",
+    "**/__pycache__",
+    "scalingup/wandb",
+    "scalingup/environment/mujoco/assets/google_scanned_objects",
+    "scalingup/environment/mujoco/assets/custom",
+    "scalingup/environment/mujoco/assets/menagerie",
+    "scalingup/environment/mujoco/assets/misc",
+    "scalingup/environment/mujoco/assets/sapien",
+  "scalingup/environment/mujoco/assets/ycb",
+]
+ignore = []
+
+reportMissingImports = true
+reportMissingTypeStubs = false
+
+pythonVersion = "3.8"
+pythonPlatform = "Linux"

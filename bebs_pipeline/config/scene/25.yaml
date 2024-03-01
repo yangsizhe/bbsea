@@ -1,0 +1,70 @@
+fixed_objects:
+  #- drawer
+  - name: cupboard
+assets:  # in descending order of size
+  - name: lunch box
+    number: 1
+    model_path: environment/assets/google_scanned_objects/Olive_Kids_Dinosaur_Land_Lunch_Box/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+  - name: mug
+    number: 1
+    model_path: environment/assets/google_scanned_objects/Room_Essentials_Mug_White_Yellow/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      - 
+        - 0.0
+        - 0.0
+      -
+        - 0.0
+        - 0.0
+      -
+        - 0.0
+        - 0.0 
+  - name: line
+    number: 1
+    model_path: environment/assets/line/line-template.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159

@@ -1,0 +1,1 @@
+HYDRA_FULL_ERROR=1 CUDA_VISIBLE_DEVICES=0 python bebs_pipeline/bebs_pipeline.py max_trajectory_number_per_task=2000 success_trajectory_number_per_task=200 output_path=your_path_to_output scene_id=1

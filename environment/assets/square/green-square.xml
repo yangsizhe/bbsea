@@ -1,0 +1,12 @@
+<mujoco model="line">
+  <compiler angle="radian" autolimits="true" />
+  <asset>
+    <texture type="2d" name="green" builtin="flat" width="1" height="1" rgb1="0 1 0"/>
+    <material name="green" texture="green" rgba="1 1 1 1"/>
+  </asset>
+  <worldbody>
+    <body name="square">
+      <geom type="box" size="0.1 0.1 0.001" material="green"/>
+    </body>
+  </worldbody>
+</mujoco>

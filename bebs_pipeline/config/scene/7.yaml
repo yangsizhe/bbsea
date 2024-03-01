@@ -1,0 +1,114 @@
+fixed_objects:
+  # - name: drawer
+  # - cupboard
+assets:  # in descending order of size
+  - name: red block
+    number: 1
+    model_path: environment/assets/bebs_custom/red_block.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+  - name: green block
+    number: 1
+    model_path: environment/assets/bebs_custom/green_block.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+      -
+        - -3.14159
+        - 3.14159
+  - name: green square sticker
+    number: 1
+    model_path: environment/assets/bebs_custom/square_sticker/green_square_sticker.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.1
+        - 0.05
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+  - name: red square sticker
+    number: 1
+    model_path: environment/assets/bebs_custom/square_sticker/red_square_sticker.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.1
+        - 0.05
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+  # - name: line
+  #   number: 1
+  #   model_path: environment/assets/line/line-template.xml
+  #   qpos_ranges:
+  #     -
+  #       - 0.2
+  #       - 0.6
+  #     -
+  #       - -0.4
+  #       - 0.4
+  #     -
+  #       - 0.2
+  #       - 0.25
+  #     -
+  #       - -3.14159
+  #       - 3.14159
+  #     -
+  #       - -3.14159
+  #       - 3.14159
+  #     -
+  #       - -3.14159
+  #       - 3.14159

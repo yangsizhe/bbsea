@@ -1,0 +1,1 @@
+HYDRA_FULL_ERROR=1 CUDA_VISIBLE_DEVICES=0 python scalingup/train.py algo=diffusion_default evaluation.num_episodes=40 algo.replay_buffer.batch_size=256 trainer.max_epochs=1 evaluation=drawer dataset_path=your_path_to_dataset

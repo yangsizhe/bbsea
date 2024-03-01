@@ -1,0 +1,136 @@
+fixed_objects:
+  - name: drawer
+  # - cupboard
+assets:  # in descending order of size
+  - name: green bin
+    number: 1
+    model_path: environment/assets/bebs_custom/tote/small_tote.xml
+    qpos_ranges:
+      - 
+        - 0.25
+        - 0.55
+      -
+        - -0.35
+        - 0.35
+      -
+        - 0.05
+        - 0.05
+      - 
+        - 0.0
+        - 0.0
+      -
+        - 0.0
+        - 0.0
+      -
+        - 0.0
+        - 0.0
+  - name: bowl
+    number: 1
+    model_path: environment/assets/bowl/bowl.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+  - name: rhino toy
+    number: 1
+    model_path: environment/assets/google_scanned_objects/toys/Schleich_African_Black_Rhino/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+  - name: eagle toy
+    number: 1
+    model_path: environment/assets/google_scanned_objects/toys/Schleich_Bald_Eagle/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+  - name: bull toy
+    number: 1
+    model_path: environment/assets/google_scanned_objects/toys/Schleich_Hereford_Bull/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+  - name: lion toy
+    number: 1
+    model_path: environment/assets/google_scanned_objects/toys/Schleich_Lion_Action_Figure/model.xml
+    qpos_ranges:
+      -
+        - 0.2
+        - 0.6
+      -
+        - -0.4
+        - 0.4
+      -
+        - 0.2
+        - 0.25
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0
+      -
+        - 0
+        - 0

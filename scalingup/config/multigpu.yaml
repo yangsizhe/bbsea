@@ -1,0 +1,8 @@
+trainer:
+  devices: [4, 5, 6, 7] # 4 # set this number
+  strategy:
+    _target_: pytorch_lightning.strategies.DDPStrategy
+    process_group_backend: nccl
+    timeout:
+      _target_: datetime.timedelta
+      seconds: 30
