@@ -78,27 +78,6 @@ def save_str_to_file(content, file_name):
     f.write(content)
     f.close()
 
-# @retry(tries=5, delay=1, backoff=2, max_delay=120)
-# def call_openai_api(prompt, temperature=0.2):
-#     OPENAI_API_KEY = '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'
-#     url = "https://api.openai.com/v1/chat/completions" 
-#     headers = {
-#         "Content-Type": "application/json",
-#         "Authorization": f"Bearer {OPENAI_API_KEY}"
-#     }
-#     data = {
-#         "model": "gpt-4",
-#         "messages": [{
-#             "role": "user",
-#             "content": prompt,
-#         }],
-#         "max_tokens": 4000,
-#         "temperature": temperature,
-#         "frequency_penalty": 0.0,
-#     }
-#     response = requests.post(url, headers=headers, json=data, timeout=(60, 120))
-#     response.raise_for_status()
-#     return response.json()
 @retry(tries=5, delay=1, backoff=2, max_delay=120)
 def call_openai_api(prompt, temperature=0.2):
     messages=[{"role": "user", "content": prompt}]
