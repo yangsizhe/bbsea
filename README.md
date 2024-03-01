@@ -1,4 +1,6 @@
-# Brain-Body Synchronization
+# BBSEA: An Exploration of Brain-Body Synchronization for Embodied Agents
+
+Implementation of **BBSEA** from [BBSEA: An Exploration of Brain-Body Synchronization for Embodied Agents](https://arxiv.org/abs/2402.08212).
 
 ## Instructions
 
